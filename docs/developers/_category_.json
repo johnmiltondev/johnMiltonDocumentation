@@ -1,0 +1,8 @@
+{
+  "label": "Developers",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Esta sección es especialmente para futuros desarrolladores que requirean conocer un poco mas del proyecto."
+  }
+}
