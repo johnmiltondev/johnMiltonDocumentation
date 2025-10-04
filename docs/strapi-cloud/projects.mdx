@@ -1,0 +1,100 @@
+---
+sidebar_position: 3
+---
+
+# Proyecto
+
+Una vez dentro del proyecto, se mostrara una vista general de datos del proyecto.
+Aqui se podra navegar a las diferentes secciones y funcionalidades del proyecto.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi-cloud/strapi-cloud-project.png" alt="strapi cloud project page" />
+</div>
+
+## Logs
+
+Los logs enseñas de forma general si fue existoso el despliegue de la aplicacion o si es que fallo.
+Si fallo se pueden ver los ***runtime logs*** para verificar si algo occurrio mientras se hacia el
+despliegue.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi-cloud/strapi-cloud-logs.png" alt="strapi cloud project logs" />
+</div>
+
+## Detalles del proyecto
+
+Los detalles del proyecto nos muestran información de:
+
+- La cantidad de API requests realizadas. (el plan actual tiene un limite de 1 millón)
+- Asset bandwidth: vendria siendo la cantidad del consumo de los archivos media por los usuarios.
+
+:::tip
+
+Para asegurar no sobrepasar el limite de 500GB del ***asset bandwidth*** es importante no cargar
+el backend con muchos archivos que luego se consuman. Es decir, si hay productos que ya no estan
+disponibles, lo mejor es eliminarlos o en su caso eliminar las imagenes que estan usando, de esta
+manera se evita un sobrecargo en este apartado.
+
+:::
+
+- Asset storage: este vendria siendo la cantidad de espacio que los archivos de la web estan
+consumiendo hasta el momento (fotos, videos, audios, etc.) (el plan actual cuenta con un limite de 250GB)
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi-cloud/strapi-cloud-project-details.png" alt="strapi cloud project details" />
+</div>
+
+## Configuración del proyecto
+
+Dentro de la sección de configuración del proyecto encontraras lo siguiente.
+
+### General
+
+La pantalla general muestra la informacion general del proyecto.
+
+:::danger
+Esta pagina contiene hasta abajo un boton para eliminar el proyecto. Es importante evitar a toda costa
+que este boton sea clickeado, de otro manera se eliminara el proyecto y la pagina dejara de funcionar.
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi-cloud/strapi-cloud-settings-general.png" alt="strapi cloud project general" />
+</div>
+
+### Cobros
+
+Muestra datos generales acerca del plan, proximo cobro, el metodo de pago, etc.
+De igual manera muestra el uso general del servicio en la parte de abajo pero detalladamente.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi-cloud/strapi-cloud-settings-billing.png" alt="strapi cloud project billing" />
+</div>
+
+### Respaldo
+
+Aqui estan los respaldos de la web que se realizan cada semanada de manera automatica.
+Se pueden descargar si se desea tenerlos de manera local o dejarlos ahi para cuando se vayan
+generando.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi-cloud/strapi-cloud-settings-backups.png" alt="strapi cloud project backups" />
+</div>
+
+### Environments
+
+Esta sección nos ayuda a crear nuevos entornos de trabajo, que tienen un costo adicional por mes.
+Estos entornos sirven para poder probar nuevas funcionalidades de la pagina sin tener que afectar
+la pagina que se ven los usuarios.
+
+Cuando se termina de probar y todo se corrobora entonces se pueden pasar los cambios al entorno
+principal y de esta manera los usuarios ya podran verlo en tiempo real.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi-cloud/strapi-cloud-settings-environments.png" alt="strapi cloud project environments" />
+</div>
+
+## Extras
+
+Hay otras pestañas a las que se pueden acceder, pero no se incluyeron en esta documentación
+por no tener tanta relevancia. Si existe alguna duda les aconsejamos hacer una busqueda en internet
+para mas información.

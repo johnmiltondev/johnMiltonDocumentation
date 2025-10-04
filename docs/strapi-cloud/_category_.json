@@ -1,0 +1,8 @@
+{
+  "label": "Strapi - Cloud",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Sección para conocer como funciona el sitio donde esta Hosteado Strapi."
+  }
+}

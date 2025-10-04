@@ -1,0 +1,63 @@
+---
+sidebar_position: 3
+---
+
+# Proyecto
+
+Una vez dentro del proyecto, se mostrara una vista general de datos del proyecto.
+Aqui se podra navegar a las diferentes secciones y funcionalidades del proyecto.
+
+## Dashboard principal
+
+El dashboard principal muestra el despliegue actual que tiene la web, asi como los dominios
+que esta utilizando y el status de actividad.
+
+Tambien muestra algunas graficas y datos generales para revisarlos de manera rápida.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/vercel/vercel-project-home.png" alt="vercel project home page" />
+</div>
+
+De igual manera incluye algunos otros botones que te llevaran a diferentes secciones, como
+los dominios, el repositorio, el uso, los logs de construcción, etc.
+
+## Despliegues
+
+Esta sección lista todos los despliegues que se han hecho en la pagina, el item con el tag de
+***current*** es el que actualmente la página.
+
+:::tip
+Es importante revisar el estatus del despliegue actual, ya que si por alguna razón este se encuentra
+en rojo (Error) la pagina no mostrara los datos mas actuales, o inclusive estara caida.
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/vercel/vercel-project-deployments.png" alt="vercel project deployments" />
+</div>
+
+## Requests
+
+La página de request es para revisar los requests que la pagina esta generando con el uso de los usuarios.
+Es util saber esto porque nos dice si algo esta mal a nivel cliente, servidor, o codigo fuente.
+Esta es una opción mas acorde para los desarrolladores, pero igual se menciona por la utilidad.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/vercel/vercel-project-requests.png" alt="vercel project requests" />
+</div>
+
+## Configuración del proyecto
+
+Por último esta el apartado de Configuración. Esta sección es importante ya que ayuda a revisar
+las variables de entorno de la web, los domains, los despliegues, etc.
+
+Hay informacion importante que es importante no cambiar como las variables de entorno. Si se desean
+cambiar, es importante que esta actividad se realice con ayuda de un desarrollador.
+
+:::danger
+Esta pagina contiene hasta abajo un boton para eliminar el proyecto. Es importante evitar a toda costa
+que este boton sea clickeado, de otro manera se eliminara el proyecto y la pagina dejara de funcionar.
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/vercel/vercel-project-settings.png" alt="vercel project settings" />
+</div>
