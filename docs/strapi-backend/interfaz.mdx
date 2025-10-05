@@ -1,5 +1,68 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Interfaz
+
+Strapi nos permite crear 3 tipos de usuarios:
+
+- Author (solo puede mofidicar y publicar contenido que el mismo haya creado)
+- Editor (puede editar cualquier contenido y multimedia, pero no puede acceder a opciones de super admin)
+- Super admin (tiene todos los permisos activado, son cuentas especiales para desarrolladores o dueños del proyecto)
+
+:::tip
+Para los usuarios que necesiten editar cosas en la web se recomienda crearlo con el tipo de usuario ***Editor***.
+:::
+
+A continuación se explica de manera general la Interfaz de Strapi de un ***Editor***.
+
+
+## Home
+
+El ***Home page*** nos muestra de manera rápida las ultimas ediciones, los ultimos items publicados,
+y un grafico en donde podemos revisar si tenemos algun item que se necesite ***publicar***.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/strapi-home.png" alt="strapi home page" />
+</div>
+
+Como podemos observar en la siguiente imagen, el ***Editor*** solo cuenta con los siguientes pestañas.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/strapi-editor-menu.png" alt="strapi editor menu" />
+</div>
+
+Para un Super Admin la cantidad de opciones aumenta.
+
+## Content Manager
+
+Esta es la sección mas importante del backend, aqui es donde toda la edición de la web sucede.
+Aqui se aloja toda la información de la base de datos.
+
+Para la explicación mas a detalle ingresar [aquí](../category/content-manager/)
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/strapi-content-manager.png" alt="strapi content manager" />
+</div>
+
+## Media Library
+
+Esta pestaña es sencilla. Simplemente sirve para subir toda la multimedia de la web.
+
+:::tip
+Recomendamos seguir el orden de las carpetas para ingresar nuevos archivos. Si se necesita crear
+una nueva carpeta considerar nombrarlos con sentido para que otros editores puedan entender.
+:::
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/strapi-media-library.png" alt="strapi media library" />
+</div>
+
+## Settings
+
+La página de configuración. Un ***Editor*** no cuenta con los permisos suficientes para poder
+editar opciones en la configuración. Para eso sera necesario una cuenta de Super Admin.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/strapi-editor-settings.png" alt="strapi editor settings" />
+</div>
