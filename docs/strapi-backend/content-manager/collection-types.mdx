@@ -18,22 +18,179 @@ Son basicamente las tablas de la base de datos que contienen toda la informació
   <img src="/img/docs/strapi/strapi-content-manager-ct.png" alt="strapi content manager collection types" />
 </div>
 
+## Antes de empezar
+
+Para crear un nuevo item en cualquiera de las tablas solo es necesario presionar el boton de ***Create new entry*** que esta en la esquina superior derecha.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/cm-create-new-entry.png" alt="strapi create new entry button" />
+</div>
+
+Antes de comenzar existen algunos puntos importante que deben seguirse sin importar la tabla:
+
+- Al crear un item en cualquier tabla aparecera 2 botones
+  - Publish: este publica la información y la hace visible para los usuarios de la web
+  - Save: este boton salva la información como un borrados y los usuarios de la we no podran verlos
+    - Esto sirve para guardar información que aún no se ha autorizado publicar pero se salva para adenlantar y poder revisar el trabajo antes de publicar.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/cm-publish-save.png" alt="strapi create new entry button" />
+</div>
+
+- Todos los campos obligatorios (asterisco rojo) deben ser llenados para poder publicar los datos.
+- Todos los items que contengan ***relaciones*** deberan tambien ser llenados, esto es clave para que la información se publique correctamente. Estas relaciones aparecen así como en la siguiente imagen.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/cm-relation.png" alt="strapi create new entry button" />
+</div>
+
+- Los audios, volumenes, liveEvents son los diferentes 3 tipos de productos que la pagina tiene. Cuando se cree alguno de ellos siempre sera necesario crear tambien un producto en la tabla de productos ya que esa tabla es la que tiene la información de venta.
+
+- El campo ***category*** es necesario para el uso de los filtros. Es necesario usar el valor dependiedo del tipo de producto tiene los siguientes campos:
+  - audio: para audios y volumenes
+  - hipnosis-online: para liveEvents que sean de tipo hipnosis-online
+  - mental-evolution: para liveEvents que sean de tipo mental-evolution
+  - mental-reset: para liveEvents que sean de tipo mental-reset
+  - tour: para liveEvents que sean de tipo tour
+
+Con lo anterior entendido podemos comenzar a explicar cada tabla.
+
 ## Audio
+
+La tabla de Audios permite crear los audios que forman a su vez parte de los volumenes. Los volumenes cuentan con una tabla diferente para su creación. Estos son los audios individuales.
+
+El siguiente es un ejemplo de como deberia verse un audio despues de estar completo:
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-audio.png" alt="strapi create new entry button" />
+</div>
 
 ## FormSubmission
 
+El ***FormSubmission*** es la tabla del formulario de ***ProMind***, es decir, todo aquel que quiera información de este servicio y haya llenado el formulario aparecera en esa tabla.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-form.png" alt="strapi create new entry button" />
+</div>
+
 ## InvoiceAddress
+
+Esta es la tabla de la dirección de facturación de los usuarios. Cuando alguien requiera factura y
+se comunique por algunos de los medios disponibles aqui podran revisar cual es su dirección.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-invoice.png" alt="strapi create new entry button" />
+</div>
 
 ## LiveEvent
 
+Este tipo de producto es el que esta relacionado a todos los tipos de enventos en vivo de hipnosis:
+
+- Hipnosis Online
+- Mental evolution
+- Reset Mental
+- Tour
+
+El siguiente es un ejemplo de como deberia verse un liveEvent despues de estar completo:
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-liveEvent.png" alt="strapi create new entry button" />
+</div>
+
 ## NewsletterSubmission
+
+Esta es la tabla de los interesados en el boletín de noticias de la web.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-newsletter.png" alt="strapi create new entry button" />
+</div>
 
 ## Product
 
+Son todos los productos que aparecen en la web en las secciones donde aparecen con tarjetas de productos.
+
+Algunos de los campos mas importante de llenar son:
+
+- El campo de ***type*** se usa en la tabla de Productos para saber que tipo de producto es, es necesario ingresar el dato:
+  - audio
+  - liveEvent
+  - volumen
+
+- Para audios y volúmenes es importante ingresar el dato de expiration days, ya que este se usa
+para calcular la fecha de expiración del producto. Solo ingresar el número.
+  - 30 para audios
+  - 120 para volúmenes
+
+- Las relaciones que aparecen abajo son la manera de conectar a un producto al tipo de producto que es. Esto hace que todos los datos especificos de ese producto se jalen.
+  - audioProduct: solo llenar este campo si el producto que se va a conectar es un audio.
+  - volume_product: solo llenar este campo si el producto que se va a conectar es un volúmen.
+  - liveEventProduct: solo llenar este campo si el producto que se va a conectar es un evento en vivo.
+
+El siguiente es un ejemplo de como deberia verse un producto despues de estar completo:
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-product.png" alt="strapi create new entry button" />
+</div>
+
 ## Purchases
+
+La tabla de todas las compras registradas que hicieron los usuarios, incluyendo los audios gratis.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-purchases.png" alt="strapi create new entry button" />
+</div>
+
+Se pueden crear compras si se desea resolver problemas a usuarios que no tienen sus productos habilitados o si por otro lado se desea regalar algun producto. Para regalar un productos es importante que el usuario al que se le regalara un producto ya haya creado una cuenta en la pagina, ya que se necesita para poder hacer esto.
+
+:::note
+Importante llenar el valor de ***active*** a ***true*** para que le aparezca al usuario el producto.
+Igual llenar la fecha de compra y de expiración.
+:::
+
+La siguiente imagen muestra un ejemplo de lo anterior:
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-purchase.png" alt="strapi create new entry button" />
+</div>
 
 ## Shipping Address
 
+La dirección de envio, por el momento no se utiliza para alguna cosa pero se definio para que cuando en el futuro se necesita ya no tengamos que crearla.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-shipping.png" alt="strapi create new entry button" />
+</div>
+
 ## User
 
+La tabla de todos los usuarios registrados en la web.
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-users.png" alt="strapi create new entry button" />
+</div>
+
+Si se tiene una cuenta de super admin se puede editar cualquier información de un usuario, incluso
+cambiar la contraseña si es que el usuario tiene problemas para ingresar. Para cambiar la contraseña
+solo es necesario ingresarla en el campo y darle en guardar (save).
+
+De igual manera si algun usuario tiene problemas para crear una cuenta, solo es necesario ingresar en esta tabla sus datos y su cuenta sera creada automaticamente con la cual podra acceder a la página.
+
+El siguiente es un ejemplo de como deberia verse un user despues de estar completo:
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-user.png" alt="strapi create new entry button" />
+</div>
+
+:::danger
+Es de suma importancia que solo una persona de total confianza se ponga a modificar estos datos. Equivocarse en algun dato puede bloquear el acceso a algun otro usuario si no se confirman bien los datos que se estan modificando.
+:::
+
 ## Volume
+
+Cosas importantes para ingresar un Volúmen.
+
+1. Colocar todos los audios que este volúmen tiene para que puedan conectarse. Los audios debieron haberse creado anteriormente antes de poder ingresarlos en este campo.
+2. La categoria debe ser "audio"
+3. Hacer la relación del producto. Para esto tambien tiene que estar creado el producto para que de esta forma puedan salir en la pagina web los datos del volúmen.
+4. Llenar todos los datos con el asterisco rojo
+
+El siguiente es un ejemplo de como deberia verse un volúmen despues de estar completo:
+<div style={{textAlign: 'center'}}>
+  <img src="/img/docs/strapi/collection-types/cm-volume.png" alt="strapi create new entry button" />
+</div>

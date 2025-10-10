@@ -1,6 +1,6 @@
 {
   "label": "Content-Manager",
-  "position": 1,
+  "position": 3,
   "link": {
     "type": "generated-index",
     "description": "Sección de Strapi en donde se realiza la edición de información."
